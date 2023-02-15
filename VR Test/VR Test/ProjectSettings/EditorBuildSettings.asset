@@ -1,0 +1,11 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes: []
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: a1f1458c24ae55e4aa57664c077e9afd, type: 2}
+    Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 150a556098164de4788a3b60d2e97f90, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 2b1983d26d32e87408189bc394423eef, type: 2}
