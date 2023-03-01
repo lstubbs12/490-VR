@@ -1,28 +1,54 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ChangeLine : MonoBehaviour
 {
-    List<GameObject> lineBlockers = new List<GameObject>();
+    GameObject[] lineBlockers = new GameObject[9];
+    int count = 1;
+    int previous = 1;
 
     private void Start()
     {
-        for(int i = 0; i < 6; i++)
+
+        for(int i = 1; i < 9; i++)
         {
-            GameObject g = GameObject.Find("line" + i);
-            lineBlockers.Add(g);
+            String name = "line" + i;
+            lineBlockers[i] = GameObject.Find(name);
+            lineBlockers[i].SetActive(false);
         }
-        GameObject b = GameObject.Find("line1");
-        lineBlockers.Add(b);
-        Debug.Log(b.name);
-        
+ 
     }
     private void Update()
     {
-        GameObject b = GameObject.Find("line1");
-        lineBlockers.Add(b);
-        Debug.Log(b.name);
+        
+        
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            if (lineBlockers[previous].activeSelf)
+            {
+                lineBlockers[previous].SetActive(false);
+            }
+            lineBlockers[count].SetActive(true);
+            if (count < 8)
+            {
+                count++;
+                if(count > 2)
+                    previous++;
+            }
+            else
+            {
+                count = 1;
+                previous = 1;
+                
+            }
+            if (lineBlockers[1].activeSelf)
+                lineBlockers[8].SetActive(false);
+
+
+        }
+        
     }
 
 }
