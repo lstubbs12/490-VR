@@ -17,6 +17,9 @@ public class ButtonVR : MonoBehaviour
     AudioSource sound;
     bool isPressed;
 
+    ArrayList order = new ArrayList();
+    ArrayList pressed = new ArrayList();
+
     void Start()
     {
         sound = GetComponent<AudioSource>();
@@ -51,6 +54,29 @@ public class ButtonVR : MonoBehaviour
         sphere.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         sphere.transform.localPosition = new Vector3(0, 1, 2);
         sphere.AddComponent<Rigidbody>();
+    }
+
+    /*
+    2 first     T Z
+    4 second    P T O C
+    5 third     Z L P E D
+    6 fourth    E T O D C F
+    7 fifth     D P C Z L F T
+    8 sixth     C F D T E O P L
+    8 seventh   L D C Z O T E P
+    8 ninth     P F C D T Z L E
+    */
+
+    public void TakeInLetter(string letter){
+        pressed.Add(letter);
+        
+        // for(int i = 0; i < pressed.Count; i++){
+        //     Debug.Log(pressed[i]);
+        // }
+        foreach(var let in pressed)
+            Debug.Log(let.ToString());
+            Debug.Log(pressed.Count);
+        
     }
 
 }
