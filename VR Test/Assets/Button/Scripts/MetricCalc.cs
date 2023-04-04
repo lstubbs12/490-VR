@@ -29,6 +29,7 @@ public class MetricCalc : MonoBehaviour
     List<string> entered = new List<string>();
 
     int count = 0;
+    int countWithMistakes = 0;
     int rowNumber = 1;
     int mistakes = 0;
 
@@ -44,22 +45,24 @@ public class MetricCalc : MonoBehaviour
 
     public void TakeInLetter(string letter)
     {
+
         entered.Add(letter);
-        if (count <= 2)
+
+        if (countWithMistakes <= 2)
             rowNumber = 1;
-        if (count <= 6)
+        if (countWithMistakes > 2 && countWithMistakes <= 6)
             rowNumber = 2;
-        if (count <= 11)
+        if (countWithMistakes > 6 && countWithMistakes <= 11)
             rowNumber = 3;
-        if (count <= 17)
+        if (countWithMistakes > 11 && countWithMistakes <= 17)
             rowNumber = 4;
-        if (count <= 24)
+        if (countWithMistakes > 17 && countWithMistakes <= 24)
             rowNumber = 5;
-        if (count <= 32)
+        if (countWithMistakes > 24 && countWithMistakes <= 32)
             rowNumber = 6;
-        if (count <= 40)
+        if (countWithMistakes > 32 && countWithMistakes <= 40)
             rowNumber = 7;
-        if (count <= 48)
+        if (countWithMistakes > 40 && countWithMistakes <= 48)
             rowNumber = 8;
 
         
@@ -67,11 +70,26 @@ public class MetricCalc : MonoBehaviour
         {
             Debug.Log("Letter: " + letter);
             Debug.Log("Correct Letter: " + correct[count]);
+            Debug.Log("COUNT " + count);
 
             mistakes++;
             Debug.Log("Mistakes: " + mistakes);
+            if(mistakes > 2){
+                Debug.Log("Failed at " + rowNumber);
+                mistakes = 0;
+                rowNumber = 1;
+                count = -1;
+                countWithMistakes = 0;
+                entered.Clear();
+            }
+            
+            count++;
+            countWithMistakes++;
+        }else{
+            count++;
+            countWithMistakes++;
         }
-        count++;
+        
 
 
     }

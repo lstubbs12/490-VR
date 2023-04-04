@@ -60,12 +60,16 @@ public class MetricCalc2 : MonoBehaviour
             rowNumber = 7;
         if (count <= 48)
             rowNumber = 8;
+        if(mistakes > 2){
+                Debug.Log("Failed at " + rowNumber);
+            }
         
         count++;
         if(letter != correct[count])
         {
             mistakes++;
             Debug.Log(mistakes);
+            
         }
 
 
