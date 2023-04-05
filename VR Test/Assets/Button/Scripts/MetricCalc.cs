@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class MetricCalc : MonoBehaviour
 {
+    public GameObject displayText;
+
     /*
     2 first     T Z
     4 second    P T O C
@@ -76,6 +78,22 @@ public class MetricCalc : MonoBehaviour
             Debug.Log("Mistakes: " + mistakes);
             if(mistakes > 2){
                 Debug.Log("Failed at " + rowNumber);
+                if(rowNumber == 1)
+                    displayText.GetComponent<TextMesh>().text = "20/100";
+                if (rowNumber == 2)
+                    displayText.GetComponent<TextMesh>().text = "20/60";
+                if (rowNumber == 3)
+                    displayText.GetComponent<TextMesh>().text = "20/50";
+                if (rowNumber == 4)
+                    displayText.GetComponent<TextMesh>().text = "20/40";
+                if (rowNumber == 5)
+                    displayText.GetComponent<TextMesh>().text = "20/30";
+                if (rowNumber == 6)
+                    displayText.GetComponent<TextMesh>().text = "20/25";
+                if (rowNumber == 7)
+                    displayText.GetComponent<TextMesh>().text = "20/20";
+                if (rowNumber == 1)
+                    displayText.GetComponent<TextMesh>().text = "20/16";
                 mistakes = 0;
                 rowNumber = 1;
                 count = -1;

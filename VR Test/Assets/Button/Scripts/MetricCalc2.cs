@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MetricCalc2 : MonoBehaviour
 {
+    public GameObject displayText;
+
     /*
     2 first     T Z
     4 second    P T O C
