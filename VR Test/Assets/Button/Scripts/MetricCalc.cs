@@ -27,6 +27,7 @@ public class MetricCalc : MonoBehaviour
         "L", "D", "C", "Z", "O", "T", "E", "P",
         "P", "F", "C", "D", "T", "Z", "L", "E",
     };
+    //maybe add reset values in this list, if the reset value shows up, reset mistakes. adjust row number values
 
     List<string> entered = new List<string>();
 
@@ -42,34 +43,61 @@ public class MetricCalc : MonoBehaviour
         {
             Debug.Log(c);
         }*/
+        
 
     }
 
     public void TakeInLetter(string letter)
     {
-
         entered.Add(letter);
 
         if (countWithMistakes <= 2)
-            rowNumber = 1;
-        if (countWithMistakes > 2 && countWithMistakes <= 6)
-            rowNumber = 2;
-        if (countWithMistakes > 6 && countWithMistakes <= 11)
-            rowNumber = 3;
-        if (countWithMistakes > 11 && countWithMistakes <= 17)
-            rowNumber = 4;
-        if (countWithMistakes > 17 && countWithMistakes <= 24)
-            rowNumber = 5;
-        if (countWithMistakes > 24 && countWithMistakes <= 32)
-            rowNumber = 6;
-        if (countWithMistakes > 32 && countWithMistakes <= 40)
-            rowNumber = 7;
-        if (countWithMistakes > 40 && countWithMistakes <= 48)
-            rowNumber = 8;
+        {
+            rowNumber++;
+        }
 
-        
+        if (countWithMistakes > 2 && countWithMistakes <= 6)
+        {
+            rowNumber++;
+        }
+
+        if (countWithMistakes > 6 && countWithMistakes <= 11)
+        {
+            rowNumber++;
+
+        }
+
+        if (countWithMistakes > 11 && countWithMistakes <= 17)
+        {
+            rowNumber++;
+        }
+
+        if (countWithMistakes > 17 && countWithMistakes <= 24)
+        {
+            rowNumber++;
+        }
+
+        if (countWithMistakes > 24 && countWithMistakes <= 32)
+        {
+            rowNumber++;
+
+        }
+
+        if (countWithMistakes > 32 && countWithMistakes <= 40)
+        {
+            rowNumber++;
+
+        }
+
+        if (countWithMistakes > 40 && countWithMistakes <= 48)
+        {
+            rowNumber++;
+
+        }
+
         if (letter != correct[count])
         {
+            
             Debug.Log("Letter: " + letter);
             Debug.Log("Correct Letter: " + correct[count]);
             Debug.Log("COUNT " + count);
@@ -106,6 +134,7 @@ public class MetricCalc : MonoBehaviour
         }else{
             count++;
             countWithMistakes++;
+            //if row number changed, reset mistakes.
         }
         
 
