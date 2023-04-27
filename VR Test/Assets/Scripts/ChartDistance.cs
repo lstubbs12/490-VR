@@ -13,6 +13,7 @@ public class ChartDistance : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.DownArrow)){
             transform.position += forward.transform.right;
+            
         }
         if(Input.GetKeyDown(KeyCode.UpArrow)){
             transform.position -= forward.transform.right;

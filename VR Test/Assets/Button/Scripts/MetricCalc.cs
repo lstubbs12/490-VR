@@ -53,45 +53,45 @@ public class MetricCalc : MonoBehaviour
 
         if (countWithMistakes <= 2)
         {
-            rowNumber++;
+            rowNumber = 1;
         }
 
         if (countWithMistakes > 2 && countWithMistakes <= 6)
         {
-            rowNumber++;
+            rowNumber = 2;
         }
 
         if (countWithMistakes > 6 && countWithMistakes <= 11)
         {
-            rowNumber++;
+            rowNumber = 3;
 
         }
 
         if (countWithMistakes > 11 && countWithMistakes <= 17)
         {
-            rowNumber++;
+            rowNumber = 4;
         }
 
         if (countWithMistakes > 17 && countWithMistakes <= 24)
         {
-            rowNumber++;
+            rowNumber = 5;
         }
 
         if (countWithMistakes > 24 && countWithMistakes <= 32)
         {
-            rowNumber++;
+            rowNumber = 6;
 
         }
 
         if (countWithMistakes > 32 && countWithMistakes <= 40)
         {
-            rowNumber++;
+            rowNumber = 7;
 
         }
 
         if (countWithMistakes > 40 && countWithMistakes <= 48)
         {
-            rowNumber++;
+            rowNumber = 8;
 
         }
 
@@ -120,7 +120,7 @@ public class MetricCalc : MonoBehaviour
                     displayText.GetComponent<TextMesh>().text = "20/25";
                 if (rowNumber == 7)
                     displayText.GetComponent<TextMesh>().text = "20/20";
-                if (rowNumber == 1)
+                if (rowNumber == 8)
                     displayText.GetComponent<TextMesh>().text = "20/16";
                 mistakes = 0;
                 rowNumber = 1;
@@ -128,13 +128,13 @@ public class MetricCalc : MonoBehaviour
                 countWithMistakes = 0;
                 entered.Clear();
             }
-            
             count++;
             countWithMistakes++;
         }else{
             count++;
             countWithMistakes++;
-            //if row number changed, reset mistakes.
+            if(countWithMistakes == 2 || countWithMistakes == 6 || countWithMistakes == 11 || countWithMistakes == 17 || countWithMistakes == 24 || countWithMistakes == 32 || countWithMistakes == 40)
+                mistakes = 0;
         }
         
 

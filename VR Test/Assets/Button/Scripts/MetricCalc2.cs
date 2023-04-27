@@ -66,7 +66,8 @@ public class MetricCalc2 : MonoBehaviour{
             rowNumber = 7;
         if (countWithMistakes > 43 && countWithMistakes <= 50)
             rowNumber = 8;
-
+        if (countWithMistakes > 50)
+            rowNumber = 9;
         
         if (letter != correct[count])
         {
@@ -81,18 +82,20 @@ public class MetricCalc2 : MonoBehaviour{
                 if(rowNumber == 1)
                     displayText.GetComponent<TextMesh>().text = "20/100";
                 if (rowNumber == 2)
-                    displayText.GetComponent<TextMesh>().text = "20/60";
+                    displayText.GetComponent<TextMesh>().text = "20/80";
                 if (rowNumber == 3)
-                    displayText.GetComponent<TextMesh>().text = "20/50";
+                    displayText.GetComponent<TextMesh>().text = "20/60";
                 if (rowNumber == 4)
-                    displayText.GetComponent<TextMesh>().text = "20/40";
+                    displayText.GetComponent<TextMesh>().text = "20/50";
                 if (rowNumber == 5)
-                    displayText.GetComponent<TextMesh>().text = "20/30";
+                    displayText.GetComponent<TextMesh>().text = "20/40";
                 if (rowNumber == 6)
-                    displayText.GetComponent<TextMesh>().text = "20/25";
+                    displayText.GetComponent<TextMesh>().text = "20/30";
                 if (rowNumber == 7)
+                    displayText.GetComponent<TextMesh>().text = "20/25";
+                if (rowNumber == 8)
                     displayText.GetComponent<TextMesh>().text = "20/20";
-                if (rowNumber == 1)
+                    if (rowNumber == 8)
                     displayText.GetComponent<TextMesh>().text = "20/16";
                 mistakes = 0;
                 rowNumber = 1;
@@ -106,6 +109,8 @@ public class MetricCalc2 : MonoBehaviour{
         }else{
             count++;
             countWithMistakes++;
+            if(countWithMistakes == 4 || countWithMistakes == 9 || countWithMistakes == 15 || countWithMistakes == 22 || countWithMistakes == 29 || countWithMistakes == 36 || countWithMistakes == 43|| countWithMistakes == 50)
+                mistakes = 0;
         }
         
 
